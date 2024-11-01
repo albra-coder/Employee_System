@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/idRLBSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_shade_1"
+    android:padding="4dp">
+
+    <!--text view for displaying course name-->
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="4dp"
+        android:text="Full Name"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <!--image view for displaying course image-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/recImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/nameTextView"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+    <!--text view for displaying course description-->
+    <TextView
+        android:id="@+id/workIdTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recImage"
+        android:layout_margin="4dp"
+        android:layout_toEndOf="@id/recImage"
+        android:layout_toRightOf="@id/recImage"
+        android:padding="3dp"
+        android:text="Work ID"
+        android:textColor="@color/white" />
+
+    <!--text view for displaying course best suited for-->
+    <TextView
+        android:id="@+id/emailTypeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/workIdTextView"
+        android:layout_margin="4dp"
+        android:layout_toRightOf="@id/recImage"
+        android:padding="3dp"
+        android:text="Email"
+        android:textColor="@color/white" />
+
+    <!--text view for displaying course price-->
+    <TextView
+        android:id="@+id/degreeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailTypeTextView"
+        android:layout_margin="4dp"
+        android:layout_toRightOf="@id/recImage"
+        android:padding="3dp"
+        android:text="Degree"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/passwordTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/degreeTextView"
+        android:layout_margin="4dp"
+        android:layout_toRightOf="@id/recImage"
+        android:padding="3dp"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/phoneTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordTextView"
+        android:layout_margin="4dp"
+        android:layout_toRightOf="@id/recImage"
+        android:padding="3dp"
+        android:text="Phone"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/specialityTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneTextView"
+        android:layout_margin="4dp"
+        android:layout_toRightOf="@id/recImage"
+        android:padding="3dp"
+        android:text="Speciality"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/specialityTextView"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <!--button for editing course-->
+        <Button
+            android:id="@+id/idBtnEditDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:text="Edit Details"
+            android:textAllCaps="false" />
+
+        <!--button for viewing course details-->
+        <Button
+            android:id="@+id/idBtnDeleteDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:text="Delete Details"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</RelativeLayout>

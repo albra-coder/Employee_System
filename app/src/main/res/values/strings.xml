@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Employee_System</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="login">Login</string>
+    <string name="cancel">Cancel\n</string>
+
+    <string-array name="department_names_array">
+        <item>Emergency</item>
+        <item>Medicine</item>
+        <item>Surgery</item>
+        <item>Vaccination</item>
+        <item>Radiology</item>
+        <item>Transfusion Med</item>
+        <item>ICT</item>
+
+    </string-array>
+
+    <string name="dcSpec">Speciality : </string>
+    <string name="spec_1">Associate Consultant, Cardiology</string>
+    <string name="dc_degree">MBBS, D Card (London),Msc Cardiology (UK)</string>
+    <string name="dc_phn_1">814 4400 8142431</string>
+    <string name="dc_email_1">info@squarehospital.com</string>
+
+</resources>
