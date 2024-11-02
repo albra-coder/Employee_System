@@ -24,7 +24,7 @@ import io.paperdb.Paper;
 
 public class EmployeeHomeActivity extends AppCompatActivity {
 
-    private ImageView empProfileButton, empEditButton, empHoliday, doctorLogout;
+    private ImageView empProfileButton, empEditButton, empHoliday, doctorLogout,empNotification;
     private TextView doctorNameShow;
     private DatabaseReference myRef;
     private String DocNameShow;
@@ -60,6 +60,7 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         empHoliday = findViewById(R.id.empHoliday);
         empEditButton = findViewById(R.id.empEditButton);
         doctorLogout = findViewById(R.id.doctorLogout);
+        empNotification = findViewById(R.id.empNotification);
 
         empEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +81,14 @@ public class EmployeeHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EmployeeHomeActivity.this, LeaveManagementActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        empNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EmployeeHomeActivity.this, Reviews.class);
                 startActivity(intent);
             }
         });

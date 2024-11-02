@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +16,25 @@
         android:theme="@style/Theme.Employee_System"
         tools:targetApi="31">
         <activity
+            android:name=".AdminLeaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LeaveRequestAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewsAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".Reviews"
+            android:exported="false" />
+        <activity android:name=".AdminHomeActivity" />
+        <activity
+            android:name=".Feedback"
+            android:exported="false" />
+        <activity
+            android:name=".Note"
+            android:exported="false" />
+        <activity
             android:name=".EmployeeListAdapter"
             android:exported="false" />
         <activity
@@ -20,12 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".EmpList"
-            android:exported="false" />
-        <activity
-            android:name=".EmployeeView"
-            android:exported="false" />
-        <activity
-            android:name=".EditEmployeeActivity"
             android:exported="false" />
         <activity
             android:name=".LeaveManagementActivity"
@@ -37,22 +53,7 @@
             android:name=".AddEmployee"
             android:exported="false" />
         <activity
-            android:name=".Holiday"
-            android:exported="false" />
-        <activity
-            android:name=".Admin"
-            android:exported="false" />
-        <activity
-            android:name=".TrackSerial"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GetAppointmentConfirmation"
-            android:exported="false" />
-        <activity
-            android:name=".GetAppointment"
             android:exported="false" />
         <activity
             android:name=".EmployeeProfileActivity"
@@ -62,15 +63,6 @@
             android:exported="false" />
         <activity
             android:name=".Departments"
-            android:exported="false" />
-        <activity
-            android:name=".Appointment"
-            android:exported="false" />
-        <activity
-            android:name=".AdminHomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminHistory"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
