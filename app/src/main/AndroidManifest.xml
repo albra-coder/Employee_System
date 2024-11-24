@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Employee_System"
         tools:targetApi="31">
         <activity
+            android:name=".AdminLeaveRequests"
+            android:exported="false" />
+        <activity
             android:name=".BookLeaveActivity"
             android:exported="false" />
         <activity
