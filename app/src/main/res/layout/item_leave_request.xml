@@ -96,10 +96,21 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <!--notify icon-->
+    <ImageView
+        android:id="@+id/notifyIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_below="@id/textStatus"
+        android:contentDescription="Notification Icon"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/active" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textStatus"
+        android:layout_below="@id/notifyIcon"
         android:orientation="horizontal"
         android:weightSum="2">
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
     android:orientation="vertical"
     tools:context=".Feedback">
 
@@ -86,7 +87,7 @@
                 <EditText
                     android:id="@+id/nameFeedback"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:ems="12"
                     android:paddingLeft="8dp"
                     tools:ignore="TouchTargetSizeCheck" />

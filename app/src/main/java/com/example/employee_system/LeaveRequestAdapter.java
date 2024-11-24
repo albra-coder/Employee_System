@@ -1,9 +1,11 @@
 package com.example.employee_system;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,17 @@ public class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapte
         holder.textDates.setText("Leave: " + request.getStartDate() + " to " + request.getEndDate());
         holder.textStatus.setText("Status: " + request.getStatus());
         holder.textReason.setText("Reason: " + request.getReason());
+
+        holder.notifyIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Feedback.class);
+                intent.putExtra("requestId", request.getRequestId());
+                intent.putExtra("fullName", request.getFullName());
+                v.getContext().startActivity(intent);
+
+            }
+        });
 
         holder.buttonApprove.setOnClickListener(view -> {
             if (request.isDurationValid()) {
@@ -74,6 +87,8 @@ public class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textFullName, textWorkId, textDates, textStatus, textReason;
+
+        ImageView notifyIcon;
         Button buttonApprove, buttonDecline;
 
         public ViewHolder(@NonNull View itemView) {
@@ -83,6 +98,7 @@ public class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapte
             textDates = itemView.findViewById(R.id.textDates);
             textStatus = itemView.findViewById(R.id.textStatus);
             textReason = itemView.findViewById(R.id.textReason);
+            notifyIcon = itemView.findViewById(R.id.notifyIcon);
             buttonApprove = itemView.findViewById(R.id.buttonApprove);
             buttonDecline = itemView.findViewById(R.id.buttonDecline);
         }

@@ -70,7 +70,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         empFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, Feedback
+                Intent intent = new Intent(AdminHomeActivity.this, Reviews
                         .class);
                 startActivity(intent);
             }
