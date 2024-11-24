@@ -16,7 +16,7 @@ import io.paperdb.Paper;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
-    private ImageView adddocButton, empCheckButton, editempButton, empDeleteDetails, adminLogout, empFeedback;
+    private ImageView adddocButton, empCheckButton, editempButton, empDeleteDetails, adminLogout, empFeedback,empApprove;
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -31,6 +31,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         empDeleteDetails = findViewById(R.id.empDeleteDetails);
         adminLogout = findViewById(R.id.adminLogout);
         empFeedback = findViewById(R.id.empFeedback);
+        empApprove = findViewById(R.id.empApprove);
 
 
         adddocButton.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +72,14 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminHomeActivity.this, Feedback
                         .class);
+                startActivity(intent);
+            }
+        });
+
+        empApprove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomeActivity.this,AdminLeaveRequests.class);
                 startActivity(intent);
             }
         });
