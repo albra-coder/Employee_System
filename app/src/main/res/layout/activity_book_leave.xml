@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vac"
+    tools:context=".BookLeaveActivity"
+    tools:ignore="HardcodedText">
+
+    <!-- Dark Tint Overlay -->
+    <View
+        android:id="@+id/dark_tint_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:alpha="0.5" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:background="@drawable/custom_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/backB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.025"
+        android:text="Book Leave"
+        android:textColor="@color/black"
+        android:fontFamily="@font/gotham"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/backB"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="100dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!--edit text for adding a course name-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idTILFullName"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gotham"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/full_name"
+                    android:padding="5dp"
+                    android:textColorHint="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFullName"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/gotham"
+                        android:layout_height="match_parent"
+                        android:ems="10"
+                        android:importantForAutofill="no"
+                        android:inputType="textImeMultiLine|textMultiLine"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idTILWorkID"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/email_address"
+                    android:padding="5dp"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/gotham"
+                    app:hintTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etWorkId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10"
+                        android:importantForAutofill="no"
+                        android:inputType="textImeMultiLine|textMultiLine"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:fontFamily="@font/gotham"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idTILStartDate"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/start_date"
+                    android:padding="5dp"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/gotham"
+                    app:hintTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvStartDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10"
+                        android:importantForAutofill="no"
+                        android:inputType="textImeMultiLine|textMultiLine"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:fontFamily="@font/gotham"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idTILEndDate"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/end_date"
+                    android:padding="5dp"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/gotham"
+                    app:hintTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvEndDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10"
+                        android:importantForAutofill="no"
+                        android:inputType="textImeMultiLine|textMultiLine"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:fontFamily="@font/gotham"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--edit text for adding a course image link-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idTIReason"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/select_reason"
+                    android:padding="5dp"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/gotham"
+                    app:hintTextColor="@color/white">
+
+                    <Spinner
+                        android:id="@+id/spinnerReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/leave_reasons"
+                        android:prompt="@string/choose_reason" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <!--button for updating a new course-->
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:text="Upload Details"
+                        android:textAllCaps="false" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--progress bar for displaying a loading indicator-->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progress_back"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

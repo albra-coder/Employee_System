@@ -22,4 +22,17 @@
     <string name="dc_phn_1">814 4400 8142431</string>
     <string name="dc_email_1">info@squarehospital.com</string>
 
+    <string name="choose_reason">Choose a reason</string>
+    <string name="full_name">Enter Your Full Name</string>
+    <string name="email_address">Enter your Work ID</string>
+    <string name="start_date">Select Start Date</string>
+    <string name="end_date">Select an End Date</string>
+    <string name="select_reason">Choose Reason</string>
+    <string-array name="leave_reasons">
+        <item>Sick Leave</item>
+        <item>Vacation</item>
+        <item>Personal</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>

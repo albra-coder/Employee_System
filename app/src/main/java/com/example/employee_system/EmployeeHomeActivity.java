@@ -80,7 +80,7 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         empHoliday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EmployeeHomeActivity.this, LeaveManagementActivity.class);
+                Intent intent = new Intent(EmployeeHomeActivity.this, BookLeaveActivity.class);
                 startActivity(intent);
             }
         });
