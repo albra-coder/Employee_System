@@ -20,12 +20,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import io.paperdb.Paper;
 
 public class EmployeeHomeActivity extends AppCompatActivity {
 
     private ImageView empProfileButton, empEditButton, empHoliday, doctorLogout,empNotification;
-    private TextView doctorNameShow;
+    private TextView doctorNameShow,tvCalculatedSalary;
     private DatabaseReference myRef;
     private String DocNameShow;
 
@@ -35,10 +41,19 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_home);
 
+        // Initialize PaperDB at the very start
+        Paper.init(this);
+
+        // Fetch and calculate salary increment
+        fetchAndCalculateSalary();
+
+        final String Docid = Paper.book().read(Prevalent.UserIdKey);
+
         doctorNameShow = findViewById(R.id.employerNameShow); // Move this line up
 
-        Paper.init(EmployeeHomeActivity.this);
-        final String Docid = Paper.book().read(Prevalent.UserIdKey);
+        tvCalculatedSalary = findViewById(R.id.tvCalculatedSalary);
+
+
 
         myRef = FirebaseDatabase.getInstance().getReference("Employees").child(Docid);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -118,6 +133,77 @@ public class EmployeeHomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void fetchAndCalculateSalary() {
+        final String userId = Paper.book().read(Prevalent.UserIdKey); // Logged-in user ID
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Employees").child(userId);
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String entryDate = snapshot.child("date").getValue(String.class);
+                    Object currentSalaryObj = snapshot.child("salary").getValue();
+
+                    long currentSalary;
+                    try {
+                        if (currentSalaryObj instanceof Number) {
+                            // If already a number, cast it
+                            currentSalary = ((Number) currentSalaryObj).longValue();
+                        } else if (currentSalaryObj instanceof String) {
+                            // If it's a string, parse it
+                            currentSalary = Long.parseLong((String) currentSalaryObj);
+                        } else {
+                            // Invalid data type
+                            tvCalculatedSalary.setText("Salary: Current salary format invalid");
+                            return;
+                        }
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                        tvCalculatedSalary.setText("Salary: Invalid salary format");
+                        return;
+                    }
+
+                    // Perform your salary calculation
+                    long incrementedSalary = calculateIncrement(entryDate, currentSalary);
+                    tvCalculatedSalary.setText("Salary: " + incrementedSalary);
+                } else {
+                    tvCalculatedSalary.setText("Salary: Employee not found");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                tvCalculatedSalary.setText("Salary: Error fetching data");
+            }
+        });
+    }
+
+
+    private long calculateIncrement(String entryDate, long currentSalary) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date date = sdf.parse(entryDate);
+
+            if (date != null) {
+                Calendar entryCalendar = Calendar.getInstance();
+                entryCalendar.setTime(date);
+
+                Calendar currentCalendar = Calendar.getInstance();
+                int yearsOfService = currentCalendar.get(Calendar.YEAR) - entryCalendar.get(Calendar.YEAR);
+                if (currentCalendar.get(Calendar.DAY_OF_YEAR) < entryCalendar.get(Calendar.DAY_OF_YEAR)) {
+                    yearsOfService--;
+                }
+
+                // Calculate incremented salary (e.g., 5% per year)
+                double incrementRate = 0.05; // 5%
+                return (long) (currentSalary * Math.pow(1 + incrementRate, yearsOfService));
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return currentSalary; // Return current salary if calculation fails
     }
 
     @Override

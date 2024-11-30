@@ -25,8 +25,8 @@
     <!--image view for displaying course image-->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/recImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_below="@id/reveiwDoctorName"
         android:layout_centerVertical="true"
         android:layout_marginStart="4dp"
@@ -35,7 +35,7 @@
         android:layout_marginBottom="4dp"
         android:padding="4dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_profile"
+        android:src="@drawable/notification"
         app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
     <!--text view for displaying course description-->

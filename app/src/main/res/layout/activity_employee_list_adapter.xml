@@ -155,7 +155,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/showDegree"
+                        android:id="@+id/showDate"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/allerta"
@@ -186,7 +186,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/showPhone"
+                        android:id="@+id/showSalary"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"

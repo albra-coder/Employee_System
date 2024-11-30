@@ -1,29 +1,29 @@
 package com.example.employee_system;
 
 public class EmployeeListClass {
-    private String degree;
+    private String date;
     private String email;
     private String id;
     private String name;
     private String password;
-    private String phone;
+    private String salary;
     private String speciality;
 
     public EmployeeListClass() {
     }
 
-    public EmployeeListClass(String degree, String email, String id, String name, String password, String phone, String speciality) {
-        this.degree = degree;
+    public EmployeeListClass(String date, String email, String id, String name, String password, String salary, String speciality) {
+        this.date = date;
         this.email = email;
         this.id = id;
         this.name = name;
         this.password = password;
-        this.phone = phone;
+        this.salary = salary;
         this.speciality = speciality;
     }
 
-    public String getDegree() {
-        return degree;
+    public String getDate() {
+        return date;
     }
 
     public String getEmail() {
@@ -42,16 +42,16 @@ public class EmployeeListClass {
         return password;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getSalary() {
+        return salary;
     }
 
     public String getSpeciality() {
         return speciality;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setEmail(String email) {
@@ -70,8 +70,8 @@ public class EmployeeListClass {
         this.password = password;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
     public void setSpeciality(String speciality) {

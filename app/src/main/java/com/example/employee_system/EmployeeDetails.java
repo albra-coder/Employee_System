@@ -7,22 +7,22 @@ public class EmployeeDetails implements Parcelable {
     private String id;
     private String name;
     private String email;
-    private String degree;
+    private String entryDate;
     private String password;
-    private String phone;
+    private String salary;
     private String speciality;
 
     // Default constructor (needed for Firebase and Parcelable)
     public EmployeeDetails() {}
 
     // Parameterized constructor
-    public EmployeeDetails(String id, String name, String email, String degree, String password, String phone, String speciality) {
+    public EmployeeDetails(String id, String name, String email, String entryDate, String password, String salary, String speciality) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.degree = degree;
+        this.entryDate = entryDate;
         this.password = password;
-        this.phone = phone;
+        this.salary = salary;
         this.speciality = speciality;
     }
 
@@ -31,9 +31,9 @@ public class EmployeeDetails implements Parcelable {
         id = in.readString();
         name = in.readString();
         email = in.readString();
-        degree = in.readString();
+        entryDate = in.readString();
         password = in.readString();
-        phone = in.readString();
+        salary = in.readString();
         speciality = in.readString();
     }
 
@@ -60,14 +60,14 @@ public class EmployeeDetails implements Parcelable {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public String getDegree() { return degree; }
-    public void setDegree(String degree) { this.degree = degree; }
+    public String getEntryDate() { return entryDate; }
+    public void setEntryDate(String entryDate) { this.entryDate = entryDate; }
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+    public String getSalary() { return salary; }
+    public void setSalary(String salary) { this.salary = salary; }
 
     public String getSpeciality() { return speciality; }
     public void setSpeciality(String speciality) { this.speciality = speciality; }
@@ -84,9 +84,9 @@ public class EmployeeDetails implements Parcelable {
         dest.writeString(id);
         dest.writeString(name);
         dest.writeString(email);
-        dest.writeString(degree);
+        dest.writeString(entryDate);
         dest.writeString(password);
-        dest.writeString(phone);
+        dest.writeString(salary);
         dest.writeString(speciality);
     }
 }

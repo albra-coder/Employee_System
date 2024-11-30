@@ -50,8 +50,8 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
 
         holder.showName.setText(item.name);
         holder.showSpeciality.setText(item.speciality);
-        holder.showDegree.setText(item.degree);
-        holder.showPhone.setText(item.phone);
+        holder.showDate.setText(item.date);
+        holder.showSalary.setText(item.salary);
         holder.showEmail.setText(item.email);
 
         StorageReference storageRef =
@@ -70,7 +70,7 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView showName, showPhone, showEmail, showSpeciality, showDegree;
+        public TextView showName, showSalary, showEmail, showSpeciality, showDate;
         public ImageView showPicture;
         public Button getAppointment, Feedback;
 
@@ -88,8 +88,8 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
             showPicture = itemView.findViewById(R.id.showPicture);
             showName = itemView.findViewById(R.id.showName);
             showSpeciality = itemView.findViewById(R.id.showSpeciality);
-            showDegree = itemView.findViewById(R.id.showDegree);
-            showPhone = itemView.findViewById(R.id.showPhone);
+            showDate = itemView.findViewById(R.id.showDate);
+            showSalary = itemView.findViewById(R.id.showSalary);
             showEmail = itemView.findViewById(R.id.showEmail);
 
 

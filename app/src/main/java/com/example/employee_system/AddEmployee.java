@@ -1,6 +1,7 @@
 package com.example.employee_system;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
@@ -40,7 +43,8 @@ import static android.widget.Toast.makeText;
 
 public class AddEmployee extends AppCompatActivity implements View.OnClickListener {
     String[] departmentNames;
-    private EditText name, id, phone, email, speciality, degree, password;
+    private EditText name, id, salary, email, speciality, password;
+    private TextView tvEntryDate;
     private Button addNewDoctor, goBack, chooseImage, removeImage;
     private ImageView imageHolder;
     private Spinner departmentSpinner;
@@ -68,11 +72,14 @@ public class AddEmployee extends AppCompatActivity implements View.OnClickListen
 
         name = findViewById(R.id.name);
         id = findViewById(R.id.id);
-        phone = findViewById(R.id.phone);
+        salary = findViewById(R.id.salary);
         email = findViewById(R.id.email);
         speciality = findViewById(R.id.address);
         password = findViewById(R.id.password);
-        degree = findViewById(R.id.degree);
+        tvEntryDate = findViewById(R.id.tvEntryDate);
+
+        tvEntryDate.setOnClickListener(v -> openDatePickerDialog());
+
 
         chooseImage.setOnClickListener(this);
 
@@ -150,27 +157,41 @@ public class AddEmployee extends AppCompatActivity implements View.OnClickListen
         final String randomKey = UUID.randomUUID().toString();
         final StorageReference mountainImagesRef = myRef2.child("Employees/" + randomKey + "." + extension);
 
-        String Name = name.getText().toString();
-        final String ID = id.getText().toString();
-        String Phone = phone.getText().toString();
-        String Email = email.getText().toString();
+        String Name = name.getText().toString().trim();
+        String ID = id.getText().toString().trim();
+        String Salary = salary.getText().toString().trim();
+        String Email = email.getText().toString().trim();
         String Department = departmentSpinner.getSelectedItem().toString();
-        String Degree = degree.getText().toString();
-        String Speciality = speciality.getText().toString();
+        String eDate = tvEntryDate.getText().toString().trim();
+        String Speciality = speciality.getText().toString().trim();
+        String Password = password.getText().toString().trim();
         String Image = randomKey + "." + extension;
-        String Password = password.getText().toString();
+
+        // Validate salary
+        double salaryValue;
+        try {
+            salaryValue = Double.parseDouble(Salary);
+            if (salaryValue <= 0) {
+                Toast.makeText(AddEmployee.this, "Salary must be a positive number!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(AddEmployee.this, "Invalid salary format!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         if (Name.isEmpty()) {
             Toast.makeText(AddEmployee.this, "Name is required!", Toast.LENGTH_SHORT).show();
         } else if (ID.isEmpty()) {
             Toast.makeText(AddEmployee.this, "ID is required!", Toast.LENGTH_SHORT).show();
-        } else if (Phone.isEmpty()) {
-            Toast.makeText(AddEmployee.this, "Phone is required!", Toast.LENGTH_SHORT).show();
+        } else if (Salary.isEmpty()) {
+            Toast.makeText(AddEmployee.this, "Salary is required!", Toast.LENGTH_SHORT).show();
         } else if (Email.isEmpty()) {
             Toast.makeText(AddEmployee.this, "Email is required!", Toast.LENGTH_SHORT).show();
         } else if (Department.isEmpty()) {
             Toast.makeText(AddEmployee.this, "Department is required!", Toast.LENGTH_SHORT).show();
-        } else if (Degree.isEmpty()) {
+        } else if (eDate.isEmpty()) {
             Toast.makeText(AddEmployee.this, "Degree number is required!", Toast.LENGTH_SHORT).show();
         } else if (Password.isEmpty()) {
             Toast.makeText(AddEmployee.this, "Password is required!", Toast.LENGTH_SHORT).show();
@@ -179,7 +200,7 @@ public class AddEmployee extends AppCompatActivity implements View.OnClickListen
             pd.setTitle("Uploading Picture...");
             pd.show();
 
-            final EmployeesItem DataItem = new EmployeesItem(Name, ID, Email, Phone, Degree, Speciality, Image, Password);
+            final EmployeesItem DataItem = new EmployeesItem(Name, ID, Email, Salary, eDate, Speciality, Image, Password);
             final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
             final String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
 
@@ -224,5 +245,23 @@ public class AddEmployee extends AppCompatActivity implements View.OnClickListen
         super.onBackPressed();
         finish();
     }
+
+    private void openDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    String selectedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
+                    tvEntryDate.setText(selectedDate);
+                },
+                year, month, day
+        );
+        datePickerDialog.show();
+    }
+
 
 }

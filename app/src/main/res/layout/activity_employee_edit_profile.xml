@@ -120,71 +120,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="10dp">
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:id="@+id/ic_degree"
-                        android:background="@drawable/degree"
-                        android:layout_marginTop="20dp"
-                        />
-
-                    <TextView
-                        android:id="@+id/degreeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/allerta"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/degree"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="degree"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="10dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:id="@+id/ic_phone"
-                        android:background="@drawable/ic_phone_black_24dp"
-                        android:layout_marginTop="20dp"
-                        />
-
-                    <TextView
-                        android:id="@+id/phoneText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/allerta"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/phone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="enter phone no. (11 digit)"
-                        android:layout_marginLeft="20dp"
-                        android:inputType="phone"
-                        android:visibility="gone" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"

@@ -1,0 +1,49 @@
+<!-- res/layout/dialog_edit_leave.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/editWorkId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Work ID" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Employee Email" />
+
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date of Employment" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Employee Password" />
+
+    <EditText
+        android:id="@+id/editSalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Employee Salary" />
+
+    <EditText
+        android:id="@+id/editSpeciality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Specialization" />
+</LinearLayout>

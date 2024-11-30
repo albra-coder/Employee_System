@@ -24,7 +24,7 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_employee_leave, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_employee_list, parent, false);
         return new ViewHolder(view);
     }
 
@@ -34,9 +34,9 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.ViewHold
         holder.nameTextView.setText(list.getName());
         holder.workIdTextView.setText(list.getId());
         holder.emailTypeTextView.setText(list.getEmail());
-        holder.degreeTextView.setText(list.getDegree());
+        holder.dateTextView.setText(list.getDate());
         holder.passwordTextView.setText(list.getPassword());
-        holder.phoneTextView.setText(list.getPhone());
+        holder.salaryTextView.setText(list.getSalary());
         holder.specialityTextView.setText(list.getSpeciality());
 
         // Handle Edit Button click
@@ -62,24 +62,24 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.ViewHold
     private void showEditDialog(EmployeeListClass empList, int position) {
         // Example using an AlertDialog for editing
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Edit Leave");
+        builder.setTitle("Edit Employee Details");
 
         // Add custom layout for editing
-        View editView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_leave, null);
+        View editView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_employee, null);
         EditText nameEditText = editView.findViewById(R.id.editName);
         EditText workIdEditText = editView.findViewById(R.id.editWorkId);
         EditText EmailEditText = editView.findViewById(R.id.editEmail);
-        EditText DegreeEditText = editView.findViewById(R.id.editDegree);
+        EditText DateEditText = editView.findViewById(R.id.editDate);
         EditText PasswordEditText = editView.findViewById(R.id.editPassword);
-        EditText PhoneEditText = editView.findViewById(R.id.editPhone);
+        EditText SalaryEditText = editView.findViewById(R.id.editSalary);
         EditText SpecialityEditText = editView.findViewById(R.id.editSpeciality);
         // Populate with current data
         nameEditText.setText(empList.getName());
         workIdEditText.setText(empList.getId());
         EmailEditText.setText(empList.getEmail());
-        DegreeEditText.setText(empList.getEmail());
+        DateEditText.setText(empList.getDate());
         PasswordEditText.setText(empList.getPassword());
-        PhoneEditText.setText(empList.getPhone());
+        SalaryEditText.setText(empList.getSalary());
         SpecialityEditText.setText(empList.getSpeciality());
 
         builder.setView(editView);
@@ -90,9 +90,9 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.ViewHold
             empList.setName(nameEditText.getText().toString());
             empList.setId(workIdEditText.getText().toString());
             empList.setEmail(EmailEditText.getText().toString());
-            empList.setDegree(DegreeEditText.getText().toString());
+            empList.setDate(DateEditText.getText().toString());
             empList.setPassword(PasswordEditText.getText().toString());
-            empList.setPhone(PhoneEditText.getText().toString());
+            empList.setSalary(SalaryEditText.getText().toString());
             empList.setSpeciality(SpecialityEditText.getText().toString());
 
             notifyItemChanged(position);
@@ -107,7 +107,7 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.ViewHold
     // Show delete confirmation dialog
     private void showDeleteConfirmationDialog(EmployeeListClass list, int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Delete Leave")
+        builder.setTitle("Delete Employee")
                 .setMessage("Are you sure you want to delete this employee?")
                 .setPositiveButton("Delete", (dialog, which) -> {
                     // Remove the item from the list
@@ -122,16 +122,16 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.ViewHold
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView, workIdTextView, emailTypeTextView, degreeTextView, passwordTextView, phoneTextView, specialityTextView;
+        TextView nameTextView, workIdTextView, emailTypeTextView, dateTextView, passwordTextView, salaryTextView, specialityTextView;
         Button idBtnEditDetails,idBtnDeleteDetails;
         public ViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.nameTextView);
             workIdTextView = itemView.findViewById(R.id.workIdTextView);
             emailTypeTextView = itemView.findViewById(R.id.emailTypeTextView);
-            degreeTextView = itemView.findViewById(R.id.degreeTextView);
+            dateTextView = itemView.findViewById(R.id.dateTextView);
             passwordTextView = itemView.findViewById(R.id.passwordTextView);
-            phoneTextView = itemView.findViewById(R.id.phoneTextView);
+            salaryTextView = itemView.findViewById(R.id.salaryTextView);
             specialityTextView = itemView.findViewById(R.id.specialityTextView);
             idBtnEditDetails = itemView.findViewById(R.id.idBtnEditDetails);
             idBtnDeleteDetails = itemView.findViewById(R.id.idBtnDeleteDetails);

@@ -50,19 +50,19 @@
 
     <!--text view for displaying course best suited for-->
     <TextView
-        android:id="@+id/reasonTextView"
+        android:id="@+id/emailTypeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/workIdTextView"
         android:layout_margin="4dp"
         android:layout_toRightOf="@id/recImage"
         android:padding="3dp"
-        android:text="Reason"
+        android:text="Email"
         android:textColor="@color/white" />
 
     <!--text view for displaying course price-->
     <TextView
-        android:id="@+id/degreeTextView"
+        android:id="@+id/dateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/emailTypeTextView"
@@ -78,7 +78,7 @@
         android:id="@+id/passwordTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/degreeTextView"
+        android:layout_below="@id/dateTextView"
         android:layout_margin="4dp"
         android:layout_toRightOf="@id/recImage"
         android:padding="3dp"
@@ -88,7 +88,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/phoneTextView"
+        android:id="@+id/salaryTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordTextView"
@@ -104,7 +104,7 @@
         android:id="@+id/specialityTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/phoneTextView"
+        android:layout_below="@id/salaryTextView"
         android:layout_margin="4dp"
         android:layout_toRightOf="@id/recImage"
         android:padding="3dp"

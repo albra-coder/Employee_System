@@ -197,13 +197,13 @@
                         android:background="@drawable/shape_formtitle"
                         android:fontFamily="@font/allerta"
                         android:padding="8dp"
-                        android:text="Degree"
+                        android:text="Entry Date"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/degree"
+                    <TextView
+                        android:id="@+id/tvEntryDate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
@@ -255,17 +255,18 @@
                         android:background="@drawable/shape_formtitle"
                         android:fontFamily="@font/allerta"
                         android:padding="8dp"
-                        android:text="Phone"
+                        android:text="Salary"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/phone"
+                        android:id="@+id/salary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="phone"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/black"
                         android:paddingStart="8dp" />
                 </LinearLayout>
 

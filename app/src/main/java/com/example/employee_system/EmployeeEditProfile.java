@@ -27,8 +27,8 @@ import io.paperdb.Paper;
 
 public class EmployeeEditProfile extends AppCompatActivity {
     private Button updateProfile, goBackProfile, saveUpdatedProfile, cancelUpdating;
-    private TextView showProfileName, nameText, specialityText, degreeText, phoneText, emailText, passText;
-    private EditText name, speciality, degree, phone, email, password;
+    private TextView showProfileName, nameText, specialityText, dateText, salaryText, emailText, passText;
+    private EditText name, speciality, date, salary, email, password;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -45,16 +45,14 @@ public class EmployeeEditProfile extends AppCompatActivity {
         showProfileName = findViewById(R.id.showProfileName);
         nameText = findViewById(R.id.nameText);
         specialityText = findViewById(R.id.specialityText);
-        degreeText = findViewById(R.id.degreeText);
-        phoneText = findViewById(R.id.phoneText);
+        dateText = findViewById(R.id.dateText);
         emailText = findViewById(R.id.emailText);
         passText = findViewById(R.id.passText);
 
 
         name = findViewById(R.id.name);
         speciality = findViewById(R.id.speciality);
-        degree = findViewById(R.id.degree);
-        phone = findViewById(R.id.phone);
+        date = findViewById(R.id.date);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
 
@@ -98,8 +96,6 @@ public class EmployeeEditProfile extends AppCompatActivity {
 
                         updatedValues.put("name", name.getText().toString());
                         updatedValues.put("speciality", speciality.getText().toString());
-                        updatedValues.put("degree", degree.getText().toString());
-                        updatedValues.put("phone", phone.getText().toString());
                         updatedValues.put("email", email.getText().toString());
                         updatedValues.put("password", password.getText().toString());
 
@@ -138,15 +134,12 @@ public class EmployeeEditProfile extends AppCompatActivity {
                             showProfileName.setText(getSafeValue(snapshot, "name"));
                             nameText.setText(getSafeValue(snapshot, "name"));
                             specialityText.setText(getSafeValue(snapshot, "speciality"));
-                            degreeText.setText(getSafeValue(snapshot, "degree"));
-                            phoneText.setText(getSafeValue(snapshot, "phone"));
                             emailText.setText(getSafeValue(snapshot, "email"));
                             passText.setText(getSafeValue(snapshot, "password"));
 
                             name.setText(getSafeValue(snapshot, "name"));
                             speciality.setText(getSafeValue(snapshot, "speciality"));
-                            degree.setText(getSafeValue(snapshot, "degree"));
-                            phone.setText(getSafeValue(snapshot, "phone"));
+
                             email.setText(getSafeValue(snapshot, "email"));
                             password.setText(getSafeValue(snapshot, "password"));
                         } else {
@@ -172,8 +165,6 @@ public class EmployeeEditProfile extends AppCompatActivity {
     public void makeAllVisible() {
         nameText.setVisibility(View.GONE);
         specialityText.setVisibility(View.GONE);
-        degreeText.setVisibility(View.GONE);
-        phoneText.setVisibility(View.GONE);
         emailText.setVisibility(View.GONE);
         passText.setVisibility(View.GONE);
 
@@ -183,8 +174,7 @@ public class EmployeeEditProfile extends AppCompatActivity {
 
         name.setVisibility(View.VISIBLE);
         speciality.setVisibility(View.VISIBLE);
-        degree.setVisibility(View.VISIBLE);
-        phone.setVisibility(View.VISIBLE);
+
         email.setVisibility(View.VISIBLE);
         password.setVisibility(View.VISIBLE);
 
@@ -195,8 +185,6 @@ public class EmployeeEditProfile extends AppCompatActivity {
     public void makeAllGone() {
         nameText.setVisibility(View.VISIBLE);
         specialityText.setVisibility(View.VISIBLE);
-        degreeText.setVisibility(View.VISIBLE);
-        phoneText.setVisibility(View.VISIBLE);
         emailText.setVisibility(View.VISIBLE);
         passText.setVisibility(View.VISIBLE);
 
@@ -205,8 +193,6 @@ public class EmployeeEditProfile extends AppCompatActivity {
 
         name.setVisibility(View.GONE);
         speciality.setVisibility(View.GONE);
-        degree.setVisibility(View.GONE);
-        phone.setVisibility(View.GONE);
         email.setVisibility(View.GONE);
         password.setVisibility(View.GONE);
 

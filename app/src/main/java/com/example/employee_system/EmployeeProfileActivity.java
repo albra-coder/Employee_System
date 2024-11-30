@@ -1,5 +1,6 @@
 package com.example.employee_system;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import io.paperdb.Paper;
 public class EmployeeProfileActivity extends AppCompatActivity {
     private TextView showProfileName, nameText, specialityText, degreeText, phoneText, emailText, passText;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,8 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         showProfileName = findViewById(R.id.showProfileName);
         nameText = findViewById(R.id.nameText);
         specialityText = findViewById(R.id.specialityText);
-        degreeText = findViewById(R.id.degreeText);
-        phoneText = findViewById(R.id.phoneText);
+        degreeText = findViewById(R.id.dateText);
+        phoneText = findViewById(R.id.salaryText);
         emailText = findViewById(R.id.emailText);
         passText = findViewById(R.id.passText);
 
@@ -53,8 +55,8 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                         if (snapshot.exists()) {
                             nameText.setText(snapshot.child("name").getValue(String.class));
                             specialityText.setText(snapshot.child("speciality").getValue(String.class));
-                            degreeText.setText(snapshot.child("degree").getValue(String.class));
-                            phoneText.setText(snapshot.child("phone").getValue(String.class));
+                            degreeText.setText(snapshot.child("date").getValue(String.class));
+                            phoneText.setText(snapshot.child("salary").getValue(String.class));
                             emailText.setText(snapshot.child("email").getValue(String.class));
                             passText.setText(snapshot.child("password").getValue(String.class));
 

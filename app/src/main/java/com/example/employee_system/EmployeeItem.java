@@ -4,8 +4,8 @@ public class EmployeeItem {
     String name;
     String id;
     String email;
-    String phone;
-    String degree;
+    String salary;
+    String date;
     String speciality;
     String imageName;
     String password;
@@ -14,12 +14,12 @@ public class EmployeeItem {
     public EmployeeItem() {
     }
 
-    public EmployeeItem(String name, String id, String email, String phone, String degree, String speciality, String imageName, String password) {
+    public EmployeeItem(String name, String id, String email, String salary, String date, String speciality, String imageName, String password) {
         this.name = name;
         this.id = id;
         this.email = email;
-        this.phone = phone;
-        this.degree = degree;
+        this.salary = salary;
+        this.date = date;
         this.speciality = speciality;
         this.imageName = imageName;
         this.password = password;
@@ -50,20 +50,20 @@ public class EmployeeItem {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getSalary() {
+        return salary;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
-    public String getDegree() {
-        return degree;
+    public String getDate() {
+        return date;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getSpeciality() {
